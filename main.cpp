@@ -64,7 +64,7 @@ void setup(void){
 	glEnable(GL_NORMALIZE);
 	glEnable(GL_COLOR_MATERIAL);
 	Image* sta = loadBMP("stars.bmp");		starsTexture = loadTexture(sta);	delete sta;
-	Image* sol = loadBMP("sun.bmp");		solTexture = loadTexture(sol);		delete sol;
+	Image* sol = loadBMP("sol.bmp");		solTexture = loadTexture(sol);		delete sol;
 	Image* mer = loadBMP("mercury2.bmp");	merTexture = loadTexture(mer);		delete mer;
 	Image* ven = loadBMP("venus2.bmp");		venTexture = loadTexture(ven);		delete ven;
 	Image* ter = loadBMP("earth2.bmp");		terTexture = loadTexture(ter);		delete ter;
