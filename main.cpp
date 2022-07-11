@@ -7,10 +7,10 @@
 
 using namespace std;
 
-class Planet{
+class Planeta{
 public:
 	float radius, distance, orbit, orbitSpeed, axisTilt, axisAni;
-	Planet(float _radius, float _distance, float _orbit, float _orbitSpeed, float _axisTilt, float _axisAni){
+	Planeta(float _radius, float _distance, float _orbit, float _orbitSpeed, float _axisTilt, float _axisAni){
 		radius = _radius;
 		distance = _distance;
 		orbit = _orbit;
@@ -21,16 +21,16 @@ public:
 };
 
 //Sol, Planetas e estrelas
-Planet sol(5.0, 0, 0, 0, 0, 0);				//Sol
-Planet mer(1.0, 7, 0, 4.74, 02.11, 0);		//Mercúrio
-Planet ven(1.5, 11, 0, 3.50, 177.0, 0);		//Vênus
-Planet ter(2.0, 16, 0, 2.98, 23.44, 0);		//Terra
-Planet mar(1.2, 21, 0, 2.41, 25.00, 0);		//Marte
-Planet jup(3.5, 28, 0, 1.31, 03.13, 0);		//Júpiter
-Planet sat(3.0, 37, 0, 0.97, 26.70, 0);		//Saturno
-Planet ura(2.5, 45.5, 0, 0.68, 97.77, 0);	//Urano
-Planet nep(2.3, 53.6, 0, 0.54, 28.32, 0);	//Netuno
-Planet plu(0.3, 59, 0, 0.47, 119.6, 0);		//Plutão
+Planeta sol(5.0, 0, 0, 0, 0, 0);				//Sol
+Planeta mer(1.0, 7, 0, 4.74, 02.11, 0);			//Mercúrio
+Planeta ven(1.5, 11, 0, 3.50, 177.0, 0);		//Vênus
+Planeta ter(2.0, 16, 0, 2.98, 23.44, 0);		//Terra
+Planeta mar(1.2, 21, 0, 2.41, 25.00, 0);		//Marte
+Planeta jup(3.5, 28, 0, 1.31, 03.13, 0);		//Júpiter
+Planeta sat(3.0, 37, 0, 0.97, 26.70, 0);		//Saturno
+Planeta ura(2.5, 45.5, 0, 0.68, 97.77, 0);		//Urano
+Planeta nep(2.3, 53.6, 0, 0.54, 28.32, 0);		//Netuno
+Planeta plu(0.3, 59, 0, 0.47, 119.6, 0);		//Plutão
 
 int isAnimate = 0;
 int changeCamera = 0;
@@ -38,6 +38,11 @@ int frameCount = 0;
 int labelsActive = 0;
 int zoom = 50;
 int cenaLogo = 1;
+
+float posicaoLuz[] = { 0.0, 0.0, 0.0, 0.5 }; // Posição da luz
+static float anguloLuz = 270; // Ângulo da luz
+float direcaoLuz[] = { 0.0, 0.0, 0.0 }; // Direção da luz
+static float fatorLuz = 0.2; // Fator de atenuação da luz
 
 //Função para carregar as texturas
 GLuint loadTexture(Image* image) {
@@ -63,18 +68,25 @@ void setup(void){
 	//Configuração das texturas utilizadas no projeto
 	glEnable(GL_NORMALIZE);
 	glEnable(GL_COLOR_MATERIAL);
-	Image* sta = loadBMP("stars.bmp");		starsTexture = loadTexture(sta);	delete sta;
-	Image* sol = loadBMP("sol.bmp");		solTexture = loadTexture(sol);		delete sol;
-	Image* mer = loadBMP("mercury2.bmp");	merTexture = loadTexture(mer);		delete mer;
-	Image* ven = loadBMP("venus2.bmp");		venTexture = loadTexture(ven);		delete ven;
-	Image* ter = loadBMP("earth2.bmp");		terTexture = loadTexture(ter);		delete ter;
-	Image* mar = loadBMP("mars2.bmp");		marTexture = loadTexture(mar);		delete mar;
-	Image* jup = loadBMP("jupiter2.bmp");	jupTexture = loadTexture(jup);		delete jup;
-	Image* sat = loadBMP("saturn2.bmp");	satTexture = loadTexture(sat);		delete sat;
-	Image* ura = loadBMP("uranus2.bmp");	uraTexture = loadTexture(ura);		delete ura;
-	Image* nep = loadBMP("neptune2.bmp");	nepTexture = loadTexture(nep);		delete nep;
-	Image* plu = loadBMP("pluto.bmp");		pluTexture = loadTexture(plu);		delete plu;
-	Image* log = loadBMP("logop.bmp");		logTexture = loadTexture(log);		delete log;
+	Image* sta = loadBMP("stars.bmp");			starsTexture = loadTexture(sta);	delete sta;
+	Image* sol = loadBMP("sol.bmp");			solTexture = loadTexture(sol);		delete sol;
+	Image* mer = loadBMP("mercury2.bmp");		merTexture = loadTexture(mer);		delete mer;
+	Image* ven = loadBMP("venus2.bmp");			venTexture = loadTexture(ven);		delete ven;
+	Image* ter = loadBMP("earth2.bmp");			terTexture = loadTexture(ter);		delete ter;
+	Image* mar = loadBMP("mars2.bmp");			marTexture = loadTexture(mar);		delete mar;
+	Image* jup = loadBMP("jupiter2.bmp");		jupTexture = loadTexture(jup);		delete jup;
+	Image* sat = loadBMP("saturn2.bmp");		satTexture = loadTexture(sat);		delete sat;
+	Image* ura = loadBMP("uranus2.bmp");		uraTexture = loadTexture(ura);		delete ura;
+	Image* nep = loadBMP("neptune2.bmp");		nepTexture = loadTexture(nep);		delete nep;
+	Image* plu = loadBMP("pluto.bmp");			pluTexture = loadTexture(plu);		delete plu;
+	Image* log = loadBMP("logop.bmp");			logTexture = loadTexture(log);		delete log;
+
+	//Parâmetros para iluminação das cenas
+	glEnable(GL_LIGHT0);
+	glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz);
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, anguloLuz);
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, direcaoLuz);
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, fatorLuz);
 }
 //Função para exibir a logo inicial com os dados da equipe
 void drawCenaLogo(void){
