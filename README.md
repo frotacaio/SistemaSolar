@@ -2,7 +2,6 @@
 
 Este projeto, tem como objetivo replicar o sistema solar através das ferramentas técnicas apresentadas em sala de aula pelo professor DR. IALIS CAVALCANTE DE PAULA JUNIOR.
 
-
 ![SistemaSolar](https://user-images.githubusercontent.com/38898624/179425516-edb76f8b-6a80-4092-8c46-d53203a06c10.gif)
 
 <h2>Passos para realizar a compilação da simulação do projeto</h2>
