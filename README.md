@@ -8,7 +8,7 @@
 4º. Localizar o arquivo com a extensão .sln ou .vcxproj;<br>
 <p align="justify"><h3>Observação: Dentro do repositório existem outras texturas que quem clonar o projeto pode ir alterando conforme sua preferência, para isso basta trocar o nome do arquivo na main.cpp</h3><hr></p>
 
-<h2>Comandos que podem ser usados pelo usuário::busts_in_silhouette:<h2>
+<h2>Comandos que podem ser usados pelo usuário: :bust_in_silhouette:<h2>
 ESPAÇO → Inicia a simulação<br>
 ESC → Fecha a janela da simulação<br>
 L/l → Mostra/oculta o nome dos planetas<br>
