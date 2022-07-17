@@ -15,10 +15,10 @@ L/l → Mostra/oculta o nome dos planetas<br>
 1,2 e 3 → Altera entre os ângulos da câmera<br>
 Scroll do mouse → Altera o movimento da câmera<hr>
    
-<h2>Vídeo da simulação funcionando</h2>
+<h2>Vídeo da simulação funcionando :movie_camera:</h2>
 Link: https://youtu.be/pvvY-ReOvmE
 
-<h2>Aspectos sobre a criação do projeto</h2>
+<h2>Aspectos sobre a criação do projeto :wrench:</h2>
 <h3>Dificuldades:</h3>
 1. Escolha adequada da IDE que seja eficiente para o projeto proposto;<br>
 2. Configuração do ambiente de programação<br>
