@@ -6,7 +6,7 @@
 2º. Abrir o Visual Studio 2022;<br>
 3º. Clicar em "abrir projeto ou solução";<br>
 4º. Localizar o arquivo com a extensão .sln ou .vcxproj;<br>
-<h3>Observação: Dentro do repositório existem outras texturas que quem clonar o projeto pode ir alterando conforme sua preferência, para isso basta trocar o nome do arquivo na main.cpp</h3><hr>
+<p align="justify"><h3>Observação: Dentro do repositório existem outras texturas que quem clonar o projeto pode ir alterando conforme sua preferência, para isso basta trocar o nome do arquivo na main.cpp</h3><hr></p>
 
 <h2>Comandos que podem ser usados pelo usuário:<h2>
 ESPAÇO → Inicia a simulação<br>
