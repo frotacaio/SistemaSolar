@@ -2,7 +2,8 @@
 
 Este projeto, tem como objetivo replicar o sistema solar através das ferramentas técnicas apresentadas em sala de aula pelo professor DR. IALIS CAVALCANTE DE PAULA JUNIOR.
 
-![Sistema solar - Computação Gráfica](https://imgur.com/YUCvGb6)
+
+![SistemaSolar](https://user-images.githubusercontent.com/38898624/179425516-edb76f8b-6a80-4092-8c46-d53203a06c10.gif)
 
 <h2>Passos para realizar a compilação da simulação do projeto</h2>
 
@@ -18,9 +19,6 @@ ESC → Fecha a janela da simulação<br>
 L/l → Mostra/oculta o nome dos planetas<br>
 1,2 e 3 → Altera entre os ângulos da câmera<br>
 Scroll do mouse → Altera o movimento da câmera<hr>
-  
- 
-
 
 <h2>Vídeo da simulação funcionando :movie_camera:</h2>
 Link: https://youtu.be/pvvY-ReOvmE
